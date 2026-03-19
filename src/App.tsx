@@ -82,10 +82,6 @@ export default function App() {
                 <span>Формат</span>
                 <strong>Свайп + финал</strong>
               </div>
-              <div>
-                <span>Атмосфера</span>
-                <strong>Розовый гламур</strong>
-              </div>
             </div>
 
             {!hasProfiles && (
