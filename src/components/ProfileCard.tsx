@@ -18,6 +18,15 @@ export function ProfileCard({
   onClick,
 }: ProfileCardProps) {
   const clickable = typeof onClick === "function";
+  const primaryFacts = [
+    { label: copy.profileFields.hobbies, value: profile.hobbies.join(", ") },
+    { label: copy.profileFields.occupation, value: profile.occupation },
+    { label: copy.profileFields.style, value: profile.style },
+  ];
+  const secondaryFacts = [
+    { label: copy.profileFields.pets, value: profile.pets },
+    { label: copy.profileFields.worstAct, value: profile.worstAct },
+  ];
 
   return (
     <article
@@ -56,32 +65,31 @@ export function ProfileCard({
           <h2>{profile.name}</h2>
         </div>
 
-        <dl className="profile-card__facts">
-          <div>
-            <dt>{copy.profileFields.hobbies}</dt>
-            <dd>{profile.hobbies.join(", ")}</dd>
-          </div>
-          <div>
-            <dt>{copy.profileFields.occupation}</dt>
-            <dd>{profile.occupation}</dd>
-          </div>
-          <div>
-            <dt>{copy.profileFields.style}</dt>
-            <dd>{profile.style}</dd>
-          </div>
-          <div>
-            <dt>{copy.profileFields.pets}</dt>
-            <dd>{profile.pets}</dd>
-          </div>
-          <div>
-            <dt>{copy.profileFields.worstAct}</dt>
-            <dd>{profile.worstAct}</dd>
-          </div>
-        </dl>
+        <div className="profile-card__details">
+          <dl className="profile-card__facts">
+            {primaryFacts.map((fact) => (
+              <div key={fact.label}>
+                <dt>{fact.label}</dt>
+                <dd>{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
 
-        <div className="profile-card__about markdown-body">
-          <p className="profile-card__section-title">{copy.profileFields.about}</p>
-          <ReactMarkdown>{profile.about}</ReactMarkdown>
+          <div className="profile-card__secondary">
+            <dl className="profile-card__facts profile-card__facts--compact">
+              {secondaryFacts.map((fact) => (
+                <div key={fact.label}>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="profile-card__about markdown-body">
+              <p className="profile-card__section-title">{copy.profileFields.about}</p>
+              <ReactMarkdown>{profile.about}</ReactMarkdown>
+            </div>
+          </div>
         </div>
       </div>
     </article>
