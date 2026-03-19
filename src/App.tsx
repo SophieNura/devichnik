@@ -84,7 +84,7 @@ export default function App() {
               </div>
               <div>
                 <span>Атмосфера</span>
-                <strong>Розовый люкс</strong>
+                <strong>Розовый гламур</strong>
               </div>
             </div>
 

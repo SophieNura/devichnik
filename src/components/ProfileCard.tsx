@@ -52,7 +52,7 @@ export function ProfileCard({
 
       <div className="profile-card__content">
         <div className="profile-card__headline">
-          <p className="eyebrow">luxury candidate</p>
+          <p className="eyebrow">кандидат</p>
           <h2>{profile.name}</h2>
         </div>
 
