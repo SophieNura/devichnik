@@ -156,6 +156,18 @@ export default function App() {
               <span />
               <span />
               <span />
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="glitter-trail" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
             </div>
             <p className="eyebrow">grand finale</p>
             <h1>{copy.winnerTitle}</h1>
