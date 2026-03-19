@@ -1,0 +1,31 @@
+export const copy = {
+  appTitle: "Розовый Кастинг",
+  appTagline: "Люкс-отбор кандидатов для очень важного девичника",
+  startButton: "Начать кастинг",
+  like: "Нравится",
+  pass: "Нет",
+  progressLabel: "Анкета",
+  profileFields: {
+    hobbies: "Увлечения",
+    occupation: "Род деятельности",
+    style: "Стиль одежды",
+    pets: "Кошки/Собаки",
+    worstAct: "Самый плохой поступок",
+    about: "О себе",
+  },
+  emptyProfilesTitle: "Анкеты еще не добавлены",
+  emptyProfilesText:
+    "Положи .md-файлы и фотографии в папку src/content/profiles, и приложение автоматически их подхватит.",
+  invalidProfilesTitle: "Часть анкет не удалось загрузить",
+  invalidProfilesText:
+    "Ниже показаны файлы с ошибками. Исправь формат frontmatter или добавь подходящую фотографию.",
+  noMatchesTitle: "Никто не прошел кастинг",
+  noMatchesText: "Сегодня luxury-сердце осталось непокоренным.",
+  finalistsTitle: "Финальный люкс-выбор",
+  finalistsText: "Среди понравившихся остался только один достойный титула.",
+  winnerTitle: "Победитель сезона",
+  winnerText: "Корона, блеск и абсолютный триумф.",
+  restart: "Начать заново",
+  startOver: "На стартовый экран",
+  swipeHint: "Свайп влево или вправо, либо используй кнопки.",
+} as const;
