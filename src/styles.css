@@ -442,7 +442,7 @@ img {
 }
 
 .winner-stage {
-  max-width: 50rem;
+  max-width: 68rem;
   margin: 0 auto;
   text-align: center;
   overflow: hidden;
@@ -649,6 +649,20 @@ img {
   .profile-card--browse .profile-card__about,
   .profile-card--winner .profile-card__about {
     min-height: 100%;
+  }
+
+  .profile-card--winner {
+    grid-template-columns: minmax(22rem, 28rem) minmax(0, 1fr);
+  }
+
+  .profile-card--winner .profile-card__content {
+    padding: 1.6rem;
+  }
+
+  .profile-card--winner .profile-card__details,
+  .profile-card--winner .profile-card__secondary,
+  .profile-card--winner .profile-card__facts {
+    grid-template-columns: 1fr;
   }
 
   .profile-card--pick {
