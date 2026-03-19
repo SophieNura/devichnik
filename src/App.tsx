@@ -16,6 +16,7 @@ export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [likedProfiles, setLikedProfiles] = useState<Profile[]>([]);
   const [winner, setWinner] = useState<Profile | null>(null);
+  const [celebratingWinnerId, setCelebratingWinnerId] = useState<string | null>(null);
 
   const hasProfiles = profiles.length > 0;
   const currentProfile = profiles[currentIndex];
@@ -24,6 +25,7 @@ export default function App() {
     setCurrentIndex(0);
     setLikedProfiles([]);
     setWinner(null);
+    setCelebratingWinnerId(null);
     setStage(hasProfiles ? "intro" : "empty");
   };
 
@@ -36,6 +38,7 @@ export default function App() {
     setCurrentIndex(0);
     setLikedProfiles([]);
     setWinner(null);
+    setCelebratingWinnerId(null);
     setStage("browse");
   };
 
@@ -56,8 +59,17 @@ export default function App() {
   };
 
   const handlePickWinner = (profile: Profile) => {
-    setWinner(profile);
-    setStage("winner");
+    if (celebratingWinnerId) {
+      return;
+    }
+
+    setCelebratingWinnerId(profile.id);
+
+    window.setTimeout(() => {
+      setWinner(profile);
+      setStage("winner");
+      setCelebratingWinnerId(null);
+    }, 850);
   };
 
   return (
@@ -142,6 +154,7 @@ export default function App() {
                   key={profile.id}
                   profile={profile}
                   mode="pick"
+                  celebrate={celebratingWinnerId === profile.id}
                   onClick={() => handlePickWinner(profile)}
                 />
               ))}
@@ -151,24 +164,6 @@ export default function App() {
 
         {stage === "winner" && winner && (
           <section className="state-card winner-stage">
-            <div className="sparkles" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-            </div>
-            <div className="glitter-trail" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-            </div>
             <p className="eyebrow">grand finale</p>
             <h1>{copy.winnerTitle}</h1>
             <p>{copy.winnerText}</p>

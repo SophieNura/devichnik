@@ -8,6 +8,7 @@ type ProfileCardProps = {
   style?: React.CSSProperties;
   className?: string;
   onClick?: () => void;
+  celebrate?: boolean;
 };
 
 export function ProfileCard({
@@ -16,6 +17,7 @@ export function ProfileCard({
   style,
   className,
   onClick,
+  celebrate = false,
 }: ProfileCardProps) {
   const clickable = typeof onClick === "function";
   const primaryFacts = [
@@ -58,6 +60,19 @@ export function ProfileCard({
         />
         <div className="profile-card__sheen" />
       </div>
+
+      {celebrate && (
+        <div className="profile-card__celebration" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+      )}
 
       <div className="profile-card__content">
         <div className="profile-card__headline">
