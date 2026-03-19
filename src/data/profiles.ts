@@ -23,12 +23,18 @@ const imageModules = import.meta.glob(
   },
 ) as Record<string, string>;
 
+const imageFormatPriority = ["avif", "webp", "jpg", "jpeg", "png"];
+
 function getBaseName(path: string) {
   return path.split("/").pop()!.replace(/\.[^.]+$/, "");
 }
 
 function getFileName(path: string) {
   return path.split("/").pop() ?? path;
+}
+
+function getExtension(path: string) {
+  return path.split(".").pop()?.toLowerCase() ?? "";
 }
 
 function normalizeString(value: unknown) {
@@ -159,9 +165,22 @@ function validateProfile(
 }
 
 export function loadProfiles() {
-  const imagesByBaseName = new Map(
-    Object.entries(imageModules).map(([path, url]) => [getBaseName(path), url]),
-  );
+  const imagesByBaseName = new Map<string, string>();
+
+  Object.entries(imageModules)
+    .sort(([leftPath], [rightPath]) => {
+      const leftPriority = imageFormatPriority.indexOf(getExtension(leftPath));
+      const rightPriority = imageFormatPriority.indexOf(getExtension(rightPath));
+
+      return leftPriority - rightPriority;
+    })
+    .forEach(([path, url]) => {
+      const basename = getBaseName(path);
+
+      if (!imagesByBaseName.has(basename)) {
+        imagesByBaseName.set(basename, url);
+      }
+    });
 
   const profiles: Profile[] = [];
   const issues: ProfileLoadIssue[] = [];

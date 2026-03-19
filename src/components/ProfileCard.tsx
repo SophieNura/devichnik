@@ -40,7 +40,13 @@ export function ProfileCard({
       }
     >
       <div className="profile-card__media-wrap">
-        <img className="profile-card__media" src={profile.imageUrl} alt={profile.name} />
+        <img
+          className="profile-card__media"
+          src={profile.imageUrl}
+          alt={profile.name}
+          loading={mode === "browse" ? "eager" : "lazy"}
+          decoding="async"
+        />
         <div className="profile-card__sheen" />
       </div>
 
