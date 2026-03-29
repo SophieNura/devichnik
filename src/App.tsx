@@ -164,6 +164,29 @@ export default function App() {
 
         {stage === "winner" && winner && (
           <section className="state-card winner-stage">
+            <div className="winner-stage__spotlight" aria-hidden="true" />
+            <div className="winner-stage__burst" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="winner-stage__confetti" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
             <p className="eyebrow">grand finale</p>
             <h1>{copy.winnerTitle}</h1>
             <p>{copy.winnerText}</p>
