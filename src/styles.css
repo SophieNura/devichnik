@@ -125,6 +125,66 @@ img {
   margin: 2rem 0;
 }
 
+.hero-rules {
+  margin: 1.5rem 0 0.5rem;
+  padding: 1.2rem;
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at top right, rgba(245, 198, 90, 0.22), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 243, 248, 0.94));
+  box-shadow: var(--shadow-glow);
+}
+
+.hero-rules__header h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1;
+}
+
+.hero-rules__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.hero-rules__item {
+  position: relative;
+  min-height: 100%;
+  padding: 1rem 1rem 1rem 3.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.hero-rules__index {
+  position: absolute;
+  left: 0.9rem;
+  top: 0.9rem;
+  display: grid;
+  place-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-strong));
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.hero-rules__item h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.hero-rules__item p {
+  margin: 0.45rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
 .hero-card__stats div,
 .inline-notice,
 .issues-box {

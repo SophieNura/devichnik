@@ -96,6 +96,23 @@ export default function App() {
               </div>
             </div>
 
+            <div className="hero-rules">
+              <div className="hero-rules__header">
+                <p className="eyebrow">how to survive this casting</p>
+                <h2>{copy.introRulesTitle}</h2>
+              </div>
+
+              <div className="hero-rules__grid">
+                {copy.introRules.map((rule, index) => (
+                  <article key={rule.title} className="hero-rules__item">
+                    <span className="hero-rules__index">0{index + 1}</span>
+                    <h3>{rule.title}</h3>
+                    <p>{rule.text}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
             {!hasProfiles && (
               <div className="inline-notice">
                 <strong>{copy.emptyProfilesTitle}</strong>
