@@ -58,7 +58,6 @@ export function ProfileCard({
           loading={mode === "browse" ? "eager" : "lazy"}
           decoding="async"
         />
-        <div className="profile-card__sheen" />
       </div>
 
       {celebrate && (

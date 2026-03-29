@@ -164,36 +164,37 @@ export default function App() {
 
         {stage === "winner" && winner && (
           <section className="state-card winner-stage">
-            <div className="winner-stage__spotlight" aria-hidden="true" />
-            <div className="winner-stage__burst" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-            </div>
-            <div className="winner-stage__confetti" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-            </div>
             <p className="eyebrow">grand finale</p>
             <h1>{copy.winnerTitle}</h1>
             <p>{copy.winnerText}</p>
             <div className="winner-stage__crown" aria-hidden="true">
               crown
             </div>
-            <ProfileCard profile={winner} mode="winner" />
+            <div className="winner-stage__card-wrap">
+              <ProfileCard profile={winner} mode="winner" />
+              <div className="winner-stage__burst" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
+              <div className="winner-stage__confetti" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
+            </div>
             <button className="action-button action-button--primary" onClick={restartFlow}>
               {copy.restart}
             </button>
