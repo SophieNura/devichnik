@@ -189,14 +189,6 @@ export default function App() {
             </div>
             <div className="winner-stage__card-wrap">
               <ProfileCard profile={winner} mode="winner" />
-              <div className="winner-stage__burst" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-              </div>
               <div className="winner-stage__confetti" aria-hidden="true">
                 <span />
                 <span />

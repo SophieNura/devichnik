@@ -607,40 +607,12 @@ img {
   z-index: 1;
 }
 
-.winner-stage__burst,
 .winner-stage__confetti {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
 }
-
-.winner-stage__burst span {
-  --ray-angle: 0deg;
-  --ray-shift: 0px;
-  --ray-delay: 0s;
-  position: absolute;
-  left: 50%;
-  top: 12%;
-  width: 0.28rem;
-  height: clamp(5rem, 10vw, 7rem);
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245, 198, 90, 0.82), rgba(255,255,255,0));
-  box-shadow: 0 0 24px rgba(255, 240, 194, 0.75);
-  opacity: 0;
-  transform: translateX(-50%) rotate(var(--ray-angle));
-  transform-origin: center bottom;
-  animation:
-    winnerRayIn 1.9s ease-out var(--ray-delay) forwards,
-    winnerRayFloat 5.8s ease-in-out calc(var(--ray-delay) + 1.9s) infinite;
-}
-
-.winner-stage__burst span:nth-child(1) { --ray-angle: -56deg; --ray-shift: -10px; --ray-delay: 0.72s; }
-.winner-stage__burst span:nth-child(2) { --ray-angle: -34deg; --ray-shift: -7px; --ray-delay: 0.94s; }
-.winner-stage__burst span:nth-child(3) { --ray-angle: -12deg; --ray-shift: -4px; --ray-delay: 0.56s; }
-.winner-stage__burst span:nth-child(4) { --ray-angle: 12deg; --ray-shift: 4px; --ray-delay: 1.08s; }
-.winner-stage__burst span:nth-child(5) { --ray-angle: 34deg; --ray-shift: 7px; --ray-delay: 0.82s; }
-.winner-stage__burst span:nth-child(6) { --ray-angle: 56deg; --ray-shift: 10px; --ray-delay: 1.16s; }
 
 .winner-stage__confetti span {
   --confetti-x: 0px;
@@ -764,32 +736,6 @@ img {
   100% {
     transform: translate3d(-14px, 120%, 0) rotate(18deg) scale(1.05);
     opacity: 0;
-  }
-}
-
-@keyframes winnerRayIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) rotate(var(--ray-angle)) scaleY(0.2);
-  }
-  35% {
-    opacity: 0.92;
-  }
-  100% {
-    opacity: 0.34;
-    transform: translateX(-50%) rotate(var(--ray-angle)) scaleY(1);
-  }
-}
-
-@keyframes winnerRayFloat {
-  0%,
-  100% {
-    opacity: 0.26;
-    transform: translateX(calc(-50% + var(--ray-shift))) translateY(0) rotate(var(--ray-angle)) scaleY(0.96);
-  }
-  50% {
-    opacity: 0.55;
-    transform: translateX(calc(-50% + var(--ray-shift))) translateY(-10px) rotate(var(--ray-angle)) scaleY(1.08);
   }
 }
 
@@ -920,9 +866,6 @@ img {
     width: auto;
   }
 
-  .winner-stage__burst span {
-    top: 10%;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -1023,7 +966,6 @@ img {
 @media (prefers-reduced-motion: reduce) {
   .winner-stage::before,
   .winner-stage__card-wrap::before,
-  .winner-stage__burst span,
   .winner-stage__confetti span,
   .winner-stage > .eyebrow,
   .winner-stage > h1,
